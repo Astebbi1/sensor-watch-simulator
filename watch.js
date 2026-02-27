@@ -615,7 +615,7 @@ function createExportWrapper(name, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile('watch.wasm');
+  return locateFile('firmware.wasm');
 }
 
 function getBinarySync(file) {
@@ -2437,28 +2437,28 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('fetchSettings');
 }
 var ASM_CONSTS = {
-  82104: () => { return Module['suspended']; },  
- 82136: ($0) => { Module['suspended'] = $0; },  
- 82166: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
- 82263: () => { tx = ""; },  
- 82276: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
- 82437: () => { return new Date().getTimezoneOffset() * 60 * 1000; },  
- 82492: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
- 82710: () => { document.getElementById("custom").style.display = ""; },  
- 82766: () => { document.getElementById("classic").style.display = "none"; },  
- 82827: () => { document.getElementById("classic").style.display = "none"; },  
- 82888: () => { document.getElementById("custom").style.display = "none"; },  
- 82948: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
- 83066: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
- 83184: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
- 83276: () => { if (!Module['audioContext']) { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); } },  
- 83396: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = volumeGain; },  
- 83901: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
- 84029: ($0, $1, $2) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[0].value = $0 / 255; color_matrix[6].value = $1 / 255; color_matrix[12].value = $2 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1 + $2) / 255; },  
- 84324: () => { return lat; },  
- 84340: () => { return lon; },  
- 84356: () => { return temp_c || 25.0; },  
- 84383: () => { return -new Date().getTimezoneOffset(); }
+  82040: () => { return Module['suspended']; },  
+ 82072: ($0) => { Module['suspended'] = $0; },  
+ 82102: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
+ 82199: () => { tx = ""; },  
+ 82212: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
+ 82373: () => { return new Date().getTimezoneOffset() * 60 * 1000; },  
+ 82428: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
+ 82646: () => { document.getElementById("custom").style.display = ""; },  
+ 82702: () => { document.getElementById("classic").style.display = "none"; },  
+ 82763: () => { document.getElementById("classic").style.display = "none"; },  
+ 82824: () => { document.getElementById("custom").style.display = "none"; },  
+ 82884: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
+ 83002: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
+ 83120: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
+ 83212: () => { if (!Module['audioContext']) { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); } },  
+ 83332: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = volumeGain; },  
+ 83837: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
+ 83965: ($0, $1, $2) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[0].value = $0 / 255; color_matrix[6].value = $1 / 255; color_matrix[12].value = $2 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1 + $2) / 255; },  
+ 84260: () => { return lat; },  
+ 84276: () => { return lon; },  
+ 84292: () => { return temp_c || 25.0; },  
+ 84319: () => { return -new Date().getTimezoneOffset(); }
 };
 
 // Imports from the Wasm binary.
