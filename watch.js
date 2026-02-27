@@ -615,7 +615,7 @@ function createExportWrapper(name, nargs) {
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile('firmware.wasm');
+  return locateFile('watch.wasm');
 }
 
 function getBinarySync(file) {
