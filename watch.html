@@ -1528,6 +1528,14 @@
   </svg>
 
   <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; margin: 8px 0">
+    <h2>Display</h2>
+    <div id="displayselect">
+      <input type="radio" name="display" id="disp-custom" value="custom" onclick="setDisplay(this.value)"><label
+        for="disp-custom">Custom LCD</label>
+      <input type="radio" name="display" id="disp-classic" value="classic" onclick="setDisplay(this.value)"><label
+        for="disp-classic">Classic LCD</label>
+    </div>
+
     <h2>Skin</h2>
     <div id="skinselect">
       <input type="radio" name="skin" id="f91w" value="f91w" onclick="setSkin(this.value)" checked><label
@@ -1567,8 +1575,14 @@
 </div>
 
 <script type='text/javascript'>
+  var displayType = new URLSearchParams(window.location.search).get('display') || 'custom';
+
   var outputElement = document.getElementById('output');
   var Module = {
+    locateFile: function(path, prefix) {
+      if (path === 'watch.wasm') return 'watch-' + displayType + '.wasm';
+      return (prefix || '') + path;
+    },
     preRun: [],
     postRun: [],
     print: (function() {
@@ -1700,9 +1714,30 @@
       return console.warn("input value is not a valid float:", tempInput.value,  e);
     }
   }
+  function setDisplay(chosen) {
+    var url = new URL(window.location);
+    url.searchParams.set('display', chosen);
+    window.location = url;
+  }
+
+  function initDisplay() {
+    var radio = document.getElementById('disp-' + displayType);
+    if (radio) radio.checked = true;
+    document.getElementById('classic').style.display = (displayType === 'classic') ? '' : 'none';
+    document.getElementById('custom').style.display  = (displayType === 'custom')  ? '' : 'none';
+  }
+
   loadPrefs();
+  initDisplay();
 </script>
-<script async type="text/javascript" src="watch.js"></script>
+<script>
+  (function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'watch-' + displayType + '.js';
+    document.body.appendChild(s);
+  })();
+</script>
 
 </body>
 </html>
