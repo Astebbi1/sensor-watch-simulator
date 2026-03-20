@@ -1071,6 +1071,10 @@ async function createWasm() {
       assert(ASM_CONSTS.hasOwnProperty(code), `No EM_ASM constant found at address ${code}.  The loaded WebAssembly file is likely out of sync with the generated JavaScript.`);
       return ASM_CONSTS[code](...args);
     };
+  var _emscripten_asm_const_double = (code, sigPtr, argbuf) => {
+      return runEmAsmFunction(code, sigPtr, argbuf);
+    };
+
   var _emscripten_asm_const_int = (code, sigPtr, argbuf) => {
       return runEmAsmFunction(code, sigPtr, argbuf);
     };
@@ -2437,28 +2441,28 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('fetchSettings');
 }
 var ASM_CONSTS = {
-  82088: () => { return Module['suspended']; },  
- 82120: ($0) => { Module['suspended'] = $0; },  
- 82150: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
- 82247: () => { tx = ""; },  
- 82260: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
- 82421: () => { return new Date().getTimezoneOffset() * 60 * 1000; },  
- 82476: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
- 82694: () => { document.getElementById("custom").style.display = ""; },  
- 82750: () => { document.getElementById("classic").style.display = "none"; },  
- 82811: () => { document.getElementById("classic").style.display = "none"; },  
- 82872: () => { document.getElementById("custom").style.display = "none"; },  
- 82932: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
- 83050: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
- 83168: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
- 83260: () => { if (!Module['audioContext']) { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); } },  
- 83380: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = volumeGain; },  
- 83885: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
- 84013: ($0, $1, $2) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[0].value = $0 / 255; color_matrix[6].value = $1 / 255; color_matrix[12].value = $2 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1 + $2) / 255; },  
- 84308: () => { return lat; },  
- 84324: () => { return lon; },  
- 84340: () => { return temp_c || 25.0; },  
- 84367: () => { return -new Date().getTimezoneOffset(); }
+  84760: () => { return Module['suspended']; },  
+ 84792: ($0) => { Module['suspended'] = $0; },  
+ 84822: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
+ 84919: () => { tx = ""; },  
+ 84932: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
+ 85093: () => { return new Date().getTimezoneOffset() * 60 * 1000; },  
+ 85148: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
+ 85366: () => { document.getElementById("custom").style.display = ""; },  
+ 85422: () => { document.getElementById("classic").style.display = "none"; },  
+ 85483: () => { document.getElementById("classic").style.display = "none"; },  
+ 85544: () => { document.getElementById("custom").style.display = "none"; },  
+ 85604: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
+ 85722: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
+ 85840: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
+ 85932: () => { if (!Module['audioContext']) { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); } },  
+ 86052: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = volumeGain; },  
+ 86557: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
+ 86685: ($0, $1, $2) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[0].value = $0 / 255; color_matrix[6].value = $1 / 255; color_matrix[12].value = $2 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1 + $2) / 255; },  
+ 86980: () => { return lat; },  
+ 86996: () => { return lon; },  
+ 87012: () => { return temp_c || 25.0; },  
+ 87039: () => { return -new Date().getTimezoneOffset(); }
 };
 
 // Imports from the Wasm binary.
@@ -2559,6 +2563,8 @@ var wasmImports = {
   __assert_fail: ___assert_fail,
   /** @export */
   _abort_js: __abort_js,
+  /** @export */
+  emscripten_asm_const_double: _emscripten_asm_const_double,
   /** @export */
   emscripten_asm_const_int: _emscripten_asm_const_int,
   /** @export */
