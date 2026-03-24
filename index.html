@@ -1527,6 +1527,8 @@
     </g>
   </svg>
 
+  <div id="face-name-display" style="text-align: center; font-size: 1.1em; font-weight: bold; color: #fff; background: #222; border-radius: 6px; padding: 4px 12px; margin: 4px 0 8px 0; min-height: 1.5em;">&nbsp;</div>
+
   <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; margin: 8px 0">
     <h2>Display</h2>
     <div id="displayselect">
@@ -1729,6 +1731,22 @@
 
   loadPrefs();
   initDisplay();
+
+  var _faceNameEl = document.getElementById('face-name-display');
+  var _lastFaceName = '';
+  function _pollFaceName() {
+    if (typeof Module !== 'undefined' && Module.ccall) {
+      try {
+        var name = Module.ccall('movement_get_current_face_name', 'string', [], []);
+        if (name && name !== _lastFaceName) {
+          _lastFaceName = name;
+          _faceNameEl.textContent = name;
+        }
+      } catch(e) {}
+    }
+    setTimeout(_pollFaceName, 250);
+  }
+  setTimeout(_pollFaceName, 1000);
 </script>
 <script>
   (function() {

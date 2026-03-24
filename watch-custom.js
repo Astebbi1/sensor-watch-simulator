@@ -2441,34 +2441,35 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('fetchSettings');
 }
 var ASM_CONSTS = {
-  84760: () => { return Module['suspended']; },  
- 84792: ($0) => { Module['suspended'] = $0; },  
- 84822: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
- 84919: () => { tx = ""; },  
- 84932: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
- 85093: () => { return new Date().getTimezoneOffset() * 60 * 1000; },  
- 85148: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
- 85366: () => { document.getElementById("custom").style.display = ""; },  
- 85422: () => { document.getElementById("classic").style.display = "none"; },  
- 85483: () => { document.getElementById("classic").style.display = "none"; },  
- 85544: () => { document.getElementById("custom").style.display = "none"; },  
- 85604: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
- 85722: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
- 85840: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
- 85932: () => { if (!Module['audioContext']) { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); } },  
- 86052: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = volumeGain; },  
- 86557: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
- 86685: ($0, $1, $2) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[0].value = $0 / 255; color_matrix[6].value = $1 / 255; color_matrix[12].value = $2 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1 + $2) / 255; },  
- 86980: () => { return lat; },  
- 86996: () => { return lon; },  
- 87012: () => { return temp_c || 25.0; },  
- 87039: () => { return -new Date().getTimezoneOffset(); }
+  85064: () => { return Module['suspended']; },  
+ 85096: ($0) => { Module['suspended'] = $0; },  
+ 85126: () => { var len = lengthBytesUTF8(tx) + 1; var s = _malloc(len); stringToUTF8(tx, s, len); return s; },  
+ 85223: () => { tx = ""; },  
+ 85236: ($0, $1) => { const classList = document.querySelector('#btn' + $0).classList; const highlight = 'highlight'; $1 ? classList.add(highlight) : classList.remove(highlight); },  
+ 85397: () => { return new Date().getTimezoneOffset() * 60 * 1000; },  
+ 85452: ($0) => { const date = new Date(Date.now() + $0); return date.getSeconds() | (date.getMinutes() << 6) | (date.getHours() << 12) | (date.getDate() << 17) | ((date.getMonth() + 1) << 22) | ((date.getFullYear() - 2020) << 26); },  
+ 85670: () => { document.getElementById("custom").style.display = ""; },  
+ 85726: () => { document.getElementById("classic").style.display = "none"; },  
+ 85787: () => { document.getElementById("classic").style.display = "none"; },  
+ 85848: () => { document.getElementById("custom").style.display = "none"; },  
+ 85908: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 1); },  
+ 86026: ($0, $1) => { document.querySelectorAll("[data-com='" + $0 + "'][data-seg='" + $1 + "']") .forEach((e) => e.style.opacity = 0); },  
+ 86144: () => { document.querySelectorAll("[data-com][data-seg]") .forEach((e) => e.style.opacity = 0); },  
+ 86236: () => { if (!Module['audioContext']) { Module['audioContext'] = new (window.AudioContext || window.webkitAudioContext)(); } },  
+ 86356: ($0) => { const audioContext = Module['audioContext']; if (!audioContext) return; if (!(audioContext._oscillator && audioContext._gain)) { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.type = 'triangle'; oscillator.connect(gain); gain.connect(audioContext.destination); oscillator.start(0); audioContext._oscillator = oscillator; audioContext._gain = gain; } audioContext._oscillator.frequency.value = 1e6/$0; audioContext._gain.gain.value = volumeGain; },  
+ 86861: () => { const audioContext = Module['audioContext']; if (audioContext && audioContext._gain) { audioContext._gain.gain.value = 0; } },  
+ 86989: ($0, $1, $2) => { let filter = document.getElementById("ledcolor"); let color_matrix = filter.children[0].values.baseVal; color_matrix[0].value = $0 / 255; color_matrix[6].value = $1 / 255; color_matrix[12].value = $2 / 255; document.getElementById('light').style.opacity = Math.min(255, $0 + $1 + $2) / 255; },  
+ 87284: () => { return lat; },  
+ 87300: () => { return lon; },  
+ 87316: () => { return temp_c || 25.0; },  
+ 87343: () => { return -new Date().getTimezoneOffset(); }
 };
 
 // Imports from the Wasm binary.
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _malloc = makeInvalidEarlyAccess('_malloc');
 var _free = makeInvalidEarlyAccess('_free');
+var _movement_get_current_face_name = Module['_movement_get_current_face_name'] = makeInvalidEarlyAccess('_movement_get_current_face_name');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _emscripten_stack_get_end = makeInvalidEarlyAccess('_emscripten_stack_get_end');
 var _emscripten_stack_get_base = makeInvalidEarlyAccess('_emscripten_stack_get_base');
@@ -2501,6 +2502,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
   assert(typeof wasmExports['malloc'] != 'undefined', 'missing Wasm export: malloc');
   assert(typeof wasmExports['free'] != 'undefined', 'missing Wasm export: free');
+  assert(typeof wasmExports['movement_get_current_face_name'] != 'undefined', 'missing Wasm export: movement_get_current_face_name');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['emscripten_stack_get_end'] != 'undefined', 'missing Wasm export: emscripten_stack_get_end');
   assert(typeof wasmExports['emscripten_stack_get_base'] != 'undefined', 'missing Wasm export: emscripten_stack_get_base');
@@ -2530,6 +2532,7 @@ function assignWasmExports(wasmExports) {
   _main = Module['_main'] = createExportWrapper('main', 2);
   _malloc = createExportWrapper('malloc', 1);
   _free = createExportWrapper('free', 1);
+  _movement_get_current_face_name = Module['_movement_get_current_face_name'] = createExportWrapper('movement_get_current_face_name', 0);
   _fflush = createExportWrapper('fflush', 1);
   _emscripten_stack_get_end = wasmExports['emscripten_stack_get_end'];
   _emscripten_stack_get_base = wasmExports['emscripten_stack_get_base'];
