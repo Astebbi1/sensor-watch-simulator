@@ -2462,14 +2462,14 @@ var ASM_CONSTS = {
  87284: () => { return lat; },  
  87300: () => { return lon; },  
  87316: () => { return temp_c || 25.0; },  
- 87343: () => { return -new Date().getTimezoneOffset(); }
+ 87343: () => { return -new Date().getTimezoneOffset(); },  
+ 87387: ($0) => { window.currentFaceName = UTF8ToString($0); }
 };
 
 // Imports from the Wasm binary.
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _malloc = makeInvalidEarlyAccess('_malloc');
 var _free = makeInvalidEarlyAccess('_free');
-var _movement_get_current_face_name = Module['_movement_get_current_face_name'] = makeInvalidEarlyAccess('_movement_get_current_face_name');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _emscripten_stack_get_end = makeInvalidEarlyAccess('_emscripten_stack_get_end');
 var _emscripten_stack_get_base = makeInvalidEarlyAccess('_emscripten_stack_get_base');
@@ -2502,7 +2502,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['main'] != 'undefined', 'missing Wasm export: main');
   assert(typeof wasmExports['malloc'] != 'undefined', 'missing Wasm export: malloc');
   assert(typeof wasmExports['free'] != 'undefined', 'missing Wasm export: free');
-  assert(typeof wasmExports['movement_get_current_face_name'] != 'undefined', 'missing Wasm export: movement_get_current_face_name');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['emscripten_stack_get_end'] != 'undefined', 'missing Wasm export: emscripten_stack_get_end');
   assert(typeof wasmExports['emscripten_stack_get_base'] != 'undefined', 'missing Wasm export: emscripten_stack_get_base');
@@ -2532,7 +2531,6 @@ function assignWasmExports(wasmExports) {
   _main = Module['_main'] = createExportWrapper('main', 2);
   _malloc = createExportWrapper('malloc', 1);
   _free = createExportWrapper('free', 1);
-  _movement_get_current_face_name = Module['_movement_get_current_face_name'] = createExportWrapper('movement_get_current_face_name', 0);
   _fflush = createExportWrapper('fflush', 1);
   _emscripten_stack_get_end = wasmExports['emscripten_stack_get_end'];
   _emscripten_stack_get_base = wasmExports['emscripten_stack_get_base'];
